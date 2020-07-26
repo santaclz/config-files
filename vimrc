@@ -1,4 +1,5 @@
 " finally copy paste has been enabled
+" to use the same copy buffer install gvim
 set clipboard=unnamedplus
 
 " enable mouse movement
