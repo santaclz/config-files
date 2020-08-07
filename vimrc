@@ -1,5 +1,4 @@
 " finally copy paste has been enabled
-" to use the same copy buffer install gvim
 set clipboard=unnamedplus
 
 " enable mouse movement
@@ -70,3 +69,7 @@ let g:syntastic_check_on_wq = 0
 autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 let g:ycm_semantic_triggers =  { 'cpp,objcpp' : ['->', '.', '::', 're!gl'] }
+
+" tab movement
+nmap <C-l> :tabn<cr>
+nmap <C-h> :tabp<cr>
