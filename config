@@ -211,3 +211,8 @@ exec --no-startup-id redshift
 #brightness controls
 bindsym $mod+O exec brightnessup
 bindsym $mod+P exec brightnessdown
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioMute exec amixer -D pulse sset Master 0%
