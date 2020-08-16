@@ -44,7 +44,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # i3 gaps
-for_window [class="^.*"] border pixel 1 
+for_window [class="^.*"] border pixel 0 
 gaps inner 5
 gaps outer 5
 
@@ -163,17 +163,23 @@ bindsym $mod+r mode "resize"
 bar {
 	position          top
 	workspace_buttons yes
-	separator_symbol  ">"
+	separator_symbol  " "
     
 	font pango:Fixedsys Excelsior 3.01 Regular 12
     	colors {
-        	background #000000
+        	background $bg 
         	statusline $fg
 
-        	focused_workspace  #ffffff #285577
-        	active_workspace   #ffffff #333333
-        	inactive_workspace #888888 #222222
-        	urgent_workspace   #ffffff #900000
+        	#focused_workspace  #ffffff #285577
+        	#active_workspace   #ffffff #333333
+        	#inactive_workspace #888888 #222222
+        	#urgent_workspace   #ffffff #900000
+		
+        	focused_workspace   $bg $fg
+        	active_workspace    $fg $bg 
+        	inactive_workspace  $fg $bg 
+        	urgent_workspace    $fg $bg
+
     	}
 	status_command i3status -c /etc/i3status.conf
 }
@@ -209,8 +215,8 @@ exec --no-startup-id redshift
 #exec --no-startup-id /home/rab1t/launch_polybar.sh
 
 #brightness controls
-bindsym $mod+O exec brightnessup
-bindsym $mod+P exec brightnessdown
+bindsym $mod+o exec brightnessup
+bindsym $mod+p exec brightnessdown
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
