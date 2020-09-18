@@ -212,6 +212,7 @@ bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindsym $mod+u exec wal -i $(find /home/rab1t/Pictures/WALLPAPS/ -type f | shuf -n 1)
 exec wal -R
 exec --no-startup-id redshift
+exec --no-startup-id nm-applet
 #exec --no-startup-id /home/rab1t/launch_polybar.sh
 
 #brightness controls
