@@ -44,9 +44,11 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # i3 gaps
-for_window [class="^.*"] border pixel 1 
-gaps inner 7
-gaps outer 5
+for_window [class="^.*"] border pixel 2
+gaps inner 10
+gaps outer 10
+
+smart_borders on
 
 bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+Shift+z	gaps outer current minus 5
@@ -161,13 +163,13 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	position          bottom
+	position          top
 	workspace_buttons yes
 	separator_symbol  " "
     
 	font pango:Fixedsys Excelsior 3.01 Regular 12
     	colors {
-        	background #000000 
+        	background #2b303b 
         	statusline $fg
 
         	#focused_workspace  #ffffff #285577
@@ -175,10 +177,10 @@ bar {
         	#inactive_workspace #888888 #222222
         	#urgent_workspace   #ffffff #900000
 		
-        	focused_workspace   #000000 $fg
-        	active_workspace    $fg $bg 
-        	inactive_workspace  $fg #000000 
-        	urgent_workspace    $fg $bg
+        	focused_workspace   #2b303b $fg
+        	active_workspace    $fg #000000
+        	inactive_workspace  $fg #2b303b 
+        	urgent_workspace    $fg #900000
 
     	}
 	status_command i3status -c /etc/i3status.conf
@@ -197,21 +199,22 @@ set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.focused          $bg     $bg     $fg  $bg       $fg
+client.focused_inactive $bg     $bg     $fg  $bg       #2b303b
+client.unfocused        $bg     $bg     $fg  $bg       #2b303b
+client.urgent           $bg     $bg     $fg  $bg       #2b303b
+client.placeholder      $bg     $bg     $fg  $bg       #2b303b
 
 client.background       $bg
 
 # PROTIP: You can also dynamically set dmenu's colors this way:
-bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
+bindsym $mod+d exec dmenu_run -nb "$fg" -nf "#2b303b" -sb "#b980ff" -sf "$fg"
 
-# wallpaper control
-bindsym $mod+u exec wal -i $(find /home/rab1t/Pictures/WALLPAPS/ -type f | shuf -n 1)
-exec wal -R
+# wallpaper control, became addicted to it
+#bindsym $mod+u exec wal -i $(find /home/rab1t/Pictures/WALLPAPS_DARK/ -type f | shuf -n 1)
+#exec wal -R
 exec --no-startup-id redshift
+#exec --no-startup-id redshift -O 5000
 exec --no-startup-id nm-applet
 #exec --no-startup-id /home/rab1t/launch_polybar.sh
 
@@ -223,4 +226,3 @@ bindsym $mod+p exec brightnessdown
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse sset Master 0%
-
