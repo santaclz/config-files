@@ -1,4 +1,3 @@
-
 # It will not be overwritten, so edit it as you like.
 #
 # Should you change your keyboard layout some time, delete
@@ -14,12 +13,12 @@ set $mod Mod1
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
-font pango:Fixedsys Excelsior 3.01 Regular 12
-
+#font pango:Fixedsys Excelsior 3.01 Regular 12
+#font xft:Tamzen 12
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
+font pango:DejaVu Sans Mono 10
+#
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -167,20 +166,21 @@ bar {
 	workspace_buttons yes
 	separator_symbol  " "
     
-	font pango:Fixedsys Excelsior 3.01 Regular 12
+	#font pango:Fixedsys Excelsior 3.01 Regular 12
+	#font xft:Tamzen 12
     	colors {
-        	background #2b303b 
-        	statusline $fg
+        	background #000000 
+        	statusline #ABABAB
 
         	#focused_workspace  #ffffff #285577
         	#active_workspace   #ffffff #333333
         	#inactive_workspace #888888 #222222
         	#urgent_workspace   #ffffff #900000
 		
-        	focused_workspace   #2b303b $fg
-        	active_workspace    $fg #000000
-        	inactive_workspace  $fg #2b303b 
-        	urgent_workspace    $fg #900000
+        	focused_workspace   #000000 #438CC8
+        	active_workspace    #268bd2 #000000
+        	inactive_workspace  #438CC8 #000000 
+        	urgent_workspace    #ffffff #900000
 
     	}
 	status_command i3status -c /etc/i3status.conf
@@ -199,24 +199,28 @@ set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $fg
-client.focused_inactive $bg     $bg     $fg  $bg       #2b303b
-client.unfocused        $bg     $bg     $fg  $bg       #2b303b
-client.urgent           $bg     $bg     $fg  $bg       #2b303b
-client.placeholder      $bg     $bg     $fg  $bg       #2b303b
+client.focused          $bg     $bg     $fg  $bg       #8B68BD
+ ####048AC7
+client.focused_inactive $bg     $bg     $fg  $bg       #000000
+client.unfocused        $bg     $bg     $fg  $bg       #000000
+client.urgent           $bg     $bg     $fg  $bg       #000000
+client.placeholder      $bg     $bg     $fg  $bg       #000000
 
 client.background       $bg
 
 # PROTIP: You can also dynamically set dmenu's colors this way:
-bindsym $mod+d exec dmenu_run -nb "$fg" -nf "#2b303b" -sb "#b980ff" -sf "$fg"
+bindsym $mod+d exec dmenu_run -nb "#657B83" -nf "#002B36" -sb "#6C71C4" -sf "$fg"
 
 # wallpaper control, became addicted to it
 #bindsym $mod+u exec wal -i $(find /home/rab1t/Pictures/WALLPAPS_DARK/ -type f | shuf -n 1)
 #exec wal -R
+exec xrdb /home/rab1t/.Xresources
+
 exec --no-startup-id redshift
 #exec --no-startup-id redshift -O 5000
 exec --no-startup-id nm-applet
 #exec --no-startup-id /home/rab1t/launch_polybar.sh
+exec --no-startup-ip nitrogen --restore
 
 #brightness controls
 bindsym $mod+o exec brightnessup
@@ -226,3 +230,4 @@ bindsym $mod+p exec brightnessdown
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse sset Master 0%
+
