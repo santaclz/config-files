@@ -1,53 +1,58 @@
 ! special
-*.foreground:   #c0c5ce
-*.background:   #2b303b
-*.cursorColor:  #c0c5ce
+*.foreground:   #c5c5c5
+*.background:   #1c1c1c
+*.cursorColor:  #8B68BD
 
 ! black
-*.color0:       #2b303b
-*.color8:       #65737e
+*.color0:       #1c1c1c
+*.color8:       #666666
 
 ! red
-*.color1:       #bf616a
-*.color9:       #bf616a
+*.color9:       #ff005b
+*.color5:       #ff00a0
 
-! green
-*.color2:       #a3be8c
-*.color10:      #a3be8c
+! poorple
+*.color4:       #8B68BD
+!#009B59
+! #7bcc1a
+*.color10:      #ccff00
 
 ! yellow
-*.color3:       #ebcb8b
-*.color11:      #ebcb8b
+*.color3:       #E1D58D
+*.color11:      #ff9f00
 
 ! blue
-*.color4:       #8fa1b3
-*.color12:      #8fa1b3
+*.color2:	#438CC8
+!#B5BD68
+! purpul
+*.color12:      #8B68BD
 
+! orang
+*.color1:       #FF9E00
 ! magenta
-*.color5:       #b48ead
-*.color13:      #b48ead
+*.color13:      #be67e1
 
-! cyan
-*.color6:       #96b5b4
-*.color14:      #96b5b4
+! darkblue
+*.color6:       #005DFF
+! prupl
+*.color14:      #8B68BD
 
 ! white
-*.color7:       #c0c5ce
-*.color15:      #eff1f5
+*.color7:       #e5e5e5
+*.color15:      #f3f3f3
 
 URxvt.intensityStyles:	false
 !URxvt.background:       [50]#000000
 URxvt.depth:		32
 !URxvt.font: 		xft:monospace:size=11
-!URxvt.font:		xft:Tamzen:style=Medium:size=14
-!URxvt.boldFont:		xft:Tamzen:style=Bold
-URxvt.font:		xft:Fixedsys Excelsior 3.01:style=Regular:size=12
-URxvt.boldFont:		xft:Fixedsys Excelsior 3.01:style=Regular:size=12
-!URxvt.font:         	xft:Hack-Regular:pixelsize=14,xft:Symbola
+!URxvt.font:		xft:TamzenForPowerline:style=Medium:antialias=false
+URxvt.font:		xft:DejaVu Sans Mono:size=10
+!URxvt.font:		xft:Fixedsys Excelsior 3.01:style=Regular:size=12
+!URxvt.boldFont:		xft:Fixedsys Excelsior 3.01:style=Regular:size=12
 URxvt.scrollBar:	false
-URxvt.cursorColor:	#b48ead
-URxvt.transparent:	false
-URxvt.shading:		20
+
+URxvt.transparent:	true
+URxvt.shading:		10
 !URxvt*blurRadius: 	10
 
 !! Extensions
