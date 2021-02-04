@@ -1,7 +1,7 @@
 ! special
 *.foreground:   #c5c5c5
-*.background:   #1c1c1c
-*.cursorColor:  #8B68BD
+*.background:   #242A34
+*.cursorColor:  #FF6100
 
 ! black
 *.color0:       #1c1c1c
@@ -11,11 +11,12 @@
 *.color9:       #ff005b
 *.color5:       #ff00a0
 
-! poorple
-*.color4:       #8B68BD
-*.color1:       #8B68BD
-*.color14:      #8B68BD
-*.color12:      #8B68BD
+! poorple #7F47F3
+! orange #FF6100
+*.color4:       #FF6100
+*.color1:       #FF6100
+*.color14:      #FF6100
+*.color12:      #FF6100
 
 *.color10:      #ccff00
 
@@ -23,15 +24,16 @@
 *.color3:       #E1D58D
 *.color11:      #ff9f00
 
-! green
-*.color2:	#1FD47A
+! green #1FD47A
+! red	#DE0000
+*.color2:	#DE0000
 ! purpul
 
 ! magenta
 *.color13:      #be67e1
 
-! darkblue
-*.color6:       #005DFF
+! darkblue #005DFF
+*.color6:       #FF6100
 ! prupl
 
 ! white
@@ -39,11 +41,13 @@
 *.color15:      #f3f3f3
 
 URxvt.intensityStyles:	false
-URxvt.background:       #000000
+URxvt.background:       #1C1F26
 URxvt.depth:		32
-!URxvt.font: 		xft:monospace:size=11
+URxvt.font: 		xft:DejaVu Sans Mono:size=10
+!URxvt.font: 		xft:Courier New:pixelsize=10
+
+
 !URxvt.font:		xft:TamzenForPowerline:style=Medium:antialias=false
-URxvt.font:		xft:DejaVu Sans Mono:size=10
 !URxvt.font:		xft:Fixedsys Excelsior 3.01:style=Regular:size=12
 !URxvt.boldFont:		xft:Fixedsys Excelsior 3.01:style=Regular:size=12
 URxvt.scrollBar:	false
