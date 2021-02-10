@@ -1,5 +1,7 @@
 " finally copy paste has been enabled
+set hlsearch
 set clipboard=unnamedplus
+syntax enable
 
 " enable mouse movement
 set mouse=a
@@ -18,15 +20,17 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'OmniSharp/omnisharp-vim'
 "Plugin 'scrooloose/syntastic'
-"Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'https://github.com/freeo/vim-kalisi'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-"Plugin 'davidhalter/jedi-vim'
 Plugin 'dylanaraps/wal.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'rust-lang/rust.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'https://tpope.io/vim/repeat.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
