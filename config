@@ -45,7 +45,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # i3 gaps
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 gaps inner 10
 gaps outer 10
 
@@ -161,6 +161,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $gg i3wm.color0 #f0f0f0
+set_from_resource $ag i3wm.color8 #f0f0f0
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -171,17 +181,17 @@ bar {
 	#font pango:Fixedsys Excelsior 3.01 Regular 12
 	#font xft:Tamzen 12
     	colors {
-        	background #1C1F26
+        	background $gg ##1C1F26
         	statusline #c5c5c5
 		
-        	focused_workspace   #1A1A1A #FF6100 #1A1A1A
+        	focused_workspace   #1A1A1A $bg #1A1A1A
         	active_workspace    #268bd2 #1A1A1A
-        	inactive_workspace  #FF6100 #1A1A1A 
+        	inactive_workspace  $bg #1A1A1A 
         	urgent_workspace    #ffffff #900000
 
         	#focused_workspace   #000000 $gg
         	#active_workspace    #268bd2 #000000
-        	#inactive_workspace  $gg #000000 
+        	#inactive_workspace  $ag #000000 
         	#urgent_workspace    #ffffff #900000
     	}
 	status_command i3status -c /etc/i3status.conf
@@ -190,19 +200,11 @@ bar {
 # Screen Shots
 bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
 bindsym Control+Print exec gnome-screenshot -i
+bindsym $mod+Control+l exec i3lock --color=#000000
 
-# Set colors from Xresources
-# Change 'color7' and 'color2' to whatever colors you want i3 to use 
-# from the generated scheme.
-# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
-# it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
-set_from_resource $gg i3wm.color4 #f0f0f0
-set_from_resource $ag i3wm.color8 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  #FF6100	#FF6100
+client.focused          $bg     $bg     $fg  #7F47F3	#7F47F3
 
  ####048AC7
 client.focused_inactive $bg     $bg     $fg  #26292F       #26292F
@@ -213,12 +215,12 @@ client.placeholder      $bg     $bg     $fg  #DE0000       #438CC8
 client.background       $bg
 
 # PROTIP: You can also dynamically set dmenu's colors this way:
-bindsym $mod+d exec dmenu_run -nb "#657B83" -nf "#1C1F26" -sb "#FF6100" -sf "$fg"
+bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$gg" -sb "$gg" -sf "$fg"
 
 # wallpaper control, became addicted to it
 #bindsym $mod+u exec wal -i $(find /home/rab1t/Pictures/WALLPAPS_DARK/ -type f | shuf -n 1)
 exec xrdb /home/rab1t/.Xresources
-#exec wal -R
+exec wal -R
 exec nitrogen --restore
 
 exec --no-startup-id redshift
@@ -236,3 +238,4 @@ bindsym $mod+p exec brightnessdown
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse sset Master 0%
+
