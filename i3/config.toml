@@ -1,0 +1,44 @@
+[icons]
+name = "awesome"
+
+[theme]
+name = "gruvbox-dark"
+
+[theme.overrides]
+separator = "<span font='12.3'></span>"
+
+[[block]]
+block = "music"
+buttons = ["play"]
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "net"
+device = "wlp2s0"
+format = "{ssid} {ip} {speed_down}"
+interval = 5
+use_bits = false
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "used"
+unit = "GiB"
+format = "{icon} {available} {unit}"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage}% {time}"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"
