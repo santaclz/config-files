@@ -104,17 +104,16 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-set $ws1 "1 " 
-set $ws2 "2 " 
-set $ws3 "3 " 
-set $ws4 "4 " 
-set $ws5 "5 a"
-set $ws6 "6 "
-set $ws7 "7 "
-set $ws8 "8 "
-set $ws9 "9 "
-set $ws10 "10 "
-set $ws11 "11 "
+set $ws1 " 1 " 
+set $ws2 " 2 " 
+set $ws3 " 3 " 
+set $ws4 " 4 " 
+set $ws5 " 5 "
+set $ws6 " 6 "
+set $ws7 " 7 "
+set $ws8 " 8 "
+set $ws9 " 9 "
+set $ws10 " 10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -192,20 +191,15 @@ bar {
 	#font pango:Fixedsys Excelsior 3.01 Regular 12
 	#font xft:Tamzen 12
     	colors {
-        	separator #666666
         	background $gg
         	statusline $fg
 		
-        	focused_workspace   #1A1A1A $bg #1A1A1A
-        	active_workspace    #268bd2 #1A1A1A
-        	inactive_workspace  $bg #1A1A1A 
-        	urgent_workspace    #ffffff #900000
-
-        	#focused_workspace   #000000 $gg
-        	#active_workspace    #268bd2 #000000
-        	#inactive_workspace  $ag #000000 
-        	#urgent_workspace    #ffffff #900000
+        	focused_workspace   $bg $bg $gg
+        	active_workspace    $gg $gg $bg
+        	inactive_workspace  $gg $gg $bg
+        	urgent_workspace    #900000 #900000 $fg
     	}
+
 	height 21
 	status_command i3status-rs ~/.config/i3/config.toml
 }
@@ -217,7 +211,7 @@ bindsym $mod+Control+l exec i3lock --color=#000000
 
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  #7F47F3	#7F47F3
+client.focused          $bg     $bg     $fg  #7F47F3   $bg
 
  ####048AC7
 client.focused_inactive $bg     $bg     $fg  #26292F       #26292F
