@@ -1,7 +1,7 @@
 ! special
 *.foreground:   #c5c5c5
 *.background:   #242A34
-*.cursorColor:  #FF6100
+*.cursorColor:  purple
 
 ! black
 *.color0:       #1c1c1c
@@ -13,10 +13,10 @@
 
 ! poorple #7F47F3
 ! orange #FF6100
-*.color4:       #FF6100
-*.color1:       #FF6100
-*.color14:      #FF6100
-*.color12:      #FF6100
+*.color4:       #81A2BE
+*.color1:       #81A2BE
+*.color14:      #81A2BE
+*.color12:      #81A2BE
 
 *.color10:      #ccff00
 
@@ -24,9 +24,10 @@
 *.color3:       #E1D58D
 *.color11:      #ff9f00
 
-! green #1FD47A
+! green-tirkiz #1FD47A
+! green #32FF00
 ! red	#DE0000
-*.color2:	#DE0000
+*.color2:	#32FF00
 ! purpul
 
 ! magenta
@@ -41,10 +42,11 @@
 *.color15:      #f3f3f3
 
 URxvt.intensityStyles:	false
-URxvt.background:       #1C1F26
+!URxvt.background:       #1C1F26
 URxvt.depth:		32
-URxvt.font: 		xft:DejaVu Sans Mono:size=10
-!URxvt.font: 		xft:Courier New:pixelsize=10
+!URxvt.font: 		xft:DejaVu Sans Mono:size=10
+URxvt.font:		xft:FiraCode:bold:size=10
+!URxvt.font: 		xft:Hack:size=10
 
 
 !URxvt.font:		xft:TamzenForPowerline:style=Medium:antialias=false
@@ -71,9 +73,3 @@ URxvt.resize-font.bigger:	C-Up
 !! Matcher
 URxvt.url-launcher:	linkhandler
 URxvt.matcher.button:	1
-
-rofi.color-enabled:	true
-rofi.color-window:	#000, #000, #000
-rofi.color-normal:	#111, #819396, #222, #008ed4, #ffffff
-rofi.color-active:	#002b37, #008ed4, #003643, #008ed4, #66c6ff
-rofi.color-urgent:	#002b37, #da4281, #003643, #008ed4, #890661
