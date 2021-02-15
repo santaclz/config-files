@@ -6,7 +6,7 @@ net_down = ""
 cpu = ""
 
 [theme]
-name = "gruvbox-dark"
+name = "plain"
 
 [theme.overrides]
 #separator = "<span font='12.3'></span>"
