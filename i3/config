@@ -12,8 +12,9 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Fira Code Bold 10
-#font xft:URWGothic-Book, FontAwesome 10
+#font pango:Fira Code Bold 10
+#font pango:Hack 10
+font xft:dejavusansmono 10
 #font pango:Fixedsys Excelsior 3.01 Regular 12
 #font xft:Tamzen 12
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -46,10 +47,11 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # i3 gaps
-for_window [class="^.*"] border pixel 5
-gaps inner 10
-gaps outer 10
+for_window [class="^.*"] border pixel 3
+gaps inner 7
+gaps outer 0
 
+#smart_gaps on
 #smart_borders on
 
 bindsym $mod+z		gaps outer current plus 5
@@ -177,30 +179,35 @@ bindsym $mod+r mode "resize"
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
-set_from_resource $gg i3wm.color0 #f0f0f0
-set_from_resource $ag i3wm.color8 #f0f0f0
+#set_from_resource $fg i3wm.color7 #f0f0f0
+#set_from_resource $bg i3wm.color2 #f0f0f0
+#set_from_resource $gg i3wm.color0 #f0f0f0
+#set_from_resource $ag i3wm.color8 #f0f0f0
+
+set_from_resource $fg color7 #f0f0f0
+set_from_resource $bg color2 #f0f0f0
+set_from_resource $gg background #f0f0f0
+set_from_resource $ag color8 #f0f0f0
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	position          top
+	position 		top 
 	workspace_buttons yes
     
 	#font pango:Fixedsys Excelsior 3.01 Regular 12
 	#font xft:Tamzen 12
     	colors {
         	background $gg
-        	statusline $fg
+        	statusline $bg
 		
-        	focused_workspace   $bg $bg $gg
+        	focused_workspace   $gg $bg $gg
         	active_workspace    $gg $gg $bg
         	inactive_workspace  $gg $gg $bg
         	urgent_workspace    #900000 #900000 $fg
     	}
 
-	height 21
+	height 20
 	status_command i3status-rs ~/.config/i3/config.toml
 }
 
@@ -210,32 +217,38 @@ bindsym Control+Print exec gnome-screenshot -i
 bindsym $mod+Control+l exec i3lock --color=#000000
 
 
-# class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $gg   $gg
+# class                 	border  backgr. text indicator child_border
+client.focused          	$bg     $bg     $fg  $ag   $ag
 
- ####048AC7
-client.focused_inactive $bg     $bg     $fg  $gg	   $gg
-client.unfocused        $bg     $bg     $fg  #26292F       $gg
-client.urgent           $bg     $bg     $fg  #DE0000       #438CC8
-client.placeholder      $bg     $bg     $fg  #DE0000       #438CC8
+client.focused_inactive 	$bg     $bg     $fg  $gg	$gg 
+client.unfocused        	$bg     $bg     $fg  $gg       	$gg
+client.unfocused_inactive 	$bg     $bg     $fg  $gg       	$gg
+client.urgent           	$bg     $bg     $fg  #DE0000       #438CC8
+client.placeholder      	$bg     $bg     $fg  #DE0000       #438CC8
 
-client.background       $bg
+client.background       	$bg
 
 # PROTIP: You can also dynamically set dmenu's colors this way:
-bindsym $mod+d exec dmenu_run -fn "Fira Code-10" -nb "$fg" -nf "$gg" -sb "$gg" -sf "$fg"
+bindsym $mod+d exec dmenu_run -fn "Hack-10" -nb "$fg" -nf "$gg" -sb "$gg" -sf "$fg"
 
 # wallpaper control, became addicted to it
-#bindsym $mod+u exec wal -i $(find /home/rab1t/Pictures/WALLPAPS_DARK/ -type f | shuf -n 1)
+#bindsym $mod+u exec wal --saturate 0.75 -i $(find /home/rab1t/Pictures/WALLPAPS/ -type f | shuf -n 1)
+
+#bindsym $mod+u exec wal --saturate 1 --iterative -i /home/rab1t/Pictures/WALLPAPS/ && ~/wal-discord/wal-discord
+
 exec xrdb /home/rab1t/.Xresources
 exec wal -R
-exec nitrogen --restore
+#wal --theme base16-solarflare
+#wal --theme hybrid-material
+#wal --theme base16-harmonic 
+#wal --theme base16-material-palenight
+#wal --theme base16-irblack
 
 exec --no-startup-id redshift
 #exec --no-startup-id redshift -O 5000
 exec --no-startup-id nm-applet
-#exec --no-startup-id /home/rab1t/launch_polybar.sh
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton -b
+#exec --no-startup-id compton -b
 
 #brightness controls
 bindsym $mod+o exec brightnessup
@@ -245,4 +258,3 @@ bindsym $mod+p exec brightnessdown
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse sset Master 0%
-
