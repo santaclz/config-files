@@ -3,14 +3,16 @@ name = "awesome"
 
 [icons.overrides]
 net_down = ""
+music="♪ "
 cpu = ""
 
 [theme]
-name = "plain"
+file = "/home/rab1t/.config/i3/mytheme.toml"
 
 [theme.overrides]
-#separator = "<span font='12.3'></span>"
-separator = ""
+#separator = "<span font='12'></span>"
+separator = "<span font='13'>\ue0ba</span>"
+#separator = ""
 
 [[block]]
 block = "focused_window"
@@ -19,17 +21,27 @@ show_marks = "visible"
 
 [[block]]
 block = "music"
-buttons = ["play"]
+buttons = ["prev", "play", "next"]
 
 [[block]]
 block = "cpu"
 interval = 1
-format = " CPU {barchart} {utilization}"
+format = "CPU {utilization} {barchart}"
+
+[[block]]
+block = "memory"
+#format_mem = "M {Mup}% S {SUp}%"
+format_mem = "{Mup}%"
+icons = true
+interval = 5
+warning_mem = 80
+warning_swap = 80
+critical_mem = 95
+critical_swap = 95
 
 [[block]]
 block = "net"
-device = "wlp2s0"
-format = "{ssid} {ip} {speed_down}"
+format = "{speed_down}"
 interval = 5
 use_bits = false
 
