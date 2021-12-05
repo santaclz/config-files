@@ -1,0 +1,9 @@
+#!/bin/sh
+
+START_PATH=~/ctf/hackthebox/$1
+mkdir -p $START_PATH
+tmux new -d sudo openvpn ~/ctf/hackthebox/lab_santaclz.ovpn
+tmux neww vim $START_PATH/README.md
+tmux neww -c $START_PATH
+
+tmux -2 attach-session -d -c $START_PATH
