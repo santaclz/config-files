@@ -2,17 +2,11 @@
 name = "awesome"
 
 [icons.overrides]
-net_down = ""
-music="♪ "
-cpu = ""
+music="♪"
 
 [theme]
-file = "/home/rab1t/.config/i3/mytheme.toml"
-
-[theme.overrides]
-#separator = "<span font='12'></span>"
-separator = "<span font='13'>\ue0ba</span>"
-#separator = ""
+file = "/home/nya/.config/i3/mytheme.toml"
+#name = "semi-native"
 
 [[block]]
 block = "focused_window"
@@ -26,41 +20,45 @@ buttons = ["prev", "play", "next"]
 [[block]]
 block = "cpu"
 interval = 1
-format = "CPU {utilization} {barchart}"
+format = " CPU {utilization} {barchart}"
+icons_format = ""
 
 [[block]]
 block = "memory"
 #format_mem = "M {Mup}% S {SUp}%"
-format_mem = "{Mup}%"
+#format_mem = "{Mup}%"
 icons = true
 interval = 5
-warning_mem = 80
-warning_swap = 80
+warning_mem = 0
+warning_swap = 0
 critical_mem = 95
 critical_swap = 95
 
 [[block]]
 block = "net"
-format = "{speed_down}"
+device="wlp0s20f3"
 interval = 5
-use_bits = false
+#format = "{ip} {speed_down;M*b}"
+format = "{ip}"
 
 [[block]]
 block = "disk_space"
 path = "/"
 alias = "/"
 info_type = "used"
-unit = "GiB"
-format = "{icon} {available} {unit}"
+unit = "GB"
+format = "{icon} {available}"
+alert = 0
 
 [[block]]
 block = "sound"
+format = "{volume:5#110} {volume}"
 
 [[block]]
 block = "battery"
 driver = "upower"
 device = "BAT0"
-format = "{percentage}% {time}"
+format = "{percentage} {time}"
 
 [[block]]
 block = "time"
