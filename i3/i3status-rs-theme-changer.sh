@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source ~/.cache/wal/colors.sh
+#source ~/.cache/wal/colors.sh
+source ~/.config/i3/xres.sh
 
 echo "idle_bg = \"$background\"
 idle_fg = \"$foreground\"
@@ -8,7 +9,7 @@ idle_fg = \"$foreground\"
 info_bg = \"$color2\"
 info_fg = \"$background\"
 
-good_bg = \"$color4\"
+good_bg = \"$color2\"
 good_fg = \"$background\"
 
 warning_bg = \"$color4\"
