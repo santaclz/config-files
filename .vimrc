@@ -1,4 +1,5 @@
 " finally copy paste has been enabled
+set number
 set hlsearch
 set clipboard=unnamedplus
 syntax enable
@@ -21,9 +22,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'OmniSharp/omnisharp-vim'
-"Plugin 'scrooloose/syntastic'
+Plugin 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tikhomirov/vim-glsl'
@@ -38,16 +37,7 @@ Plugin 'https://tpope.io/vim/repeat.git'
 Plugin 'mileszs/ack.vim'
 
 " FZF
-Plugin 'junegunn/fzf.vim'
-
-set rtp+=~/.fzf
-
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
+"Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -66,6 +56,7 @@ filetype plugin indent on    " required
 "colorscheme getafe
 colorscheme wal
 set t_Co=256
+
 " set background to transparent
 "hi Normal guibg=NONE ctermbg=NONE
 
@@ -75,26 +66,43 @@ set t_Co=256
 
 " airline theme
 let g:airline_theme='wal'
-
-"let g:OmniSharp_server_stdio = 1
-set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:airline_powerline_fonts = 0
+let g:airline_symbols_ascii = 1
 
 " files to use glsl syntax
 autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
-let g:ycm_semantic_triggers =  { 'cpp,objcpp' : ['->', '.', '::', 're!gl'] }
-let g:ycm_global_ycm_extra_conf = '/home/rab1t/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-set completeopt-=preview
+"let g:ycm_semantic_triggers =  { 'cpp,objcpp' : ['->', '.', '::', 're!gl'] }
+"let g:ycm_global_ycm_extra_conf = '/home/nya/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+"set completeopt-=preview
+
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " tab movement
 nmap <C-l> :tabn<cr>
 nmap <C-h> :tabp<cr>
 
 set tabpagemax=100
+
+" change cursor
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+set cursorline
+hi CursorLine cterm=NONE
+hi CursorLine ctermfg=NONE
+hi CursorLine ctermbg=60
+
+hi CursorLineNR cterm=NONE
+hi CursorLineNR ctermfg=2
+hi CursorLineNR ctermbg=60
